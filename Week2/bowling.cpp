@@ -13,7 +13,7 @@ int main() {
 
     double height = (gravity*pow(seconds,2))/2;
 
-    cout<<"The height of the building is: "<<height<<endl;
+    cout<<"The height of the building is: "<<height<<" meters."<<endl;
 
     return 0;
 
