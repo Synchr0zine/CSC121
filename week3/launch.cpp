@@ -28,12 +28,12 @@ int main() {
     //Variables
     double velocity_mph = 0.0, velocity_ftps = 0.0, flight_time = 0.0;
     //Input
-    cout << "Enter the velocity of the projectile:";
+    cout << "Enter the initial velocity of the projectile (mp/h):";
     cin >> velocity_mph;
 
     //Input Check
     while (velocity_mph <=0) {
-        cout << "Velocity must be greater than zero!" << endl;
+        cout << "Velocity must be greater than zero!\n" << endl;
         cout << "Enter the velocity of the projectile: ";
         cin >> velocity_mph;
     }
@@ -41,8 +41,10 @@ int main() {
     //Conversion from mp/h to fp/s
     velocity_ftps = velocity_mph * 1.467;
 
+    //Calculation of the total flight time
+    flight_time = 2.0 * velocity_ftps / gravity_ftps;
 
-    flight_time = 2.0 * velocity_ftps / gravity_ftps; //finding the total flight time so we can make the increments accordingly
+    cout << "Total flight time: " << flight_time << endl;
 
     double increments = 0.0;
     while (increments<=flight_time) {
@@ -52,24 +54,35 @@ int main() {
         cout.setf(ios::fixed);
         cout.setf(ios::right);
         cout.setf(ios::showpoint);
-        cout << increments;
+        cout << increments << " seconds";
 
         double height_ftps = velocity_ftps * increments - gravity_ftps * pow(increments, 2) / 2;
 
         cout.width(15);
-        cout.precision(4);
+        cout.precision(3);
         cout.setf(ios::fixed);
         cout.setf(ios::right);
         cout.setf(ios::showpoint);
-        cout << height_ftps;
+        cout << height_ftps << " ft" << endl;
 
 
-        increments += 0.1;
+        increments += 0.10;
     }
 
+    cout.width(15);
+    cout.precision(1);
+    cout.setf(ios::fixed);
+    cout.setf(ios::right);
+    cout.setf(ios::showpoint);
+    cout << flight_time << " seconds";
 
+    cout.width(15);
+    cout.precision(3);
+    cout.setf(ios::fixed);
+    cout.setf(ios::right);
+    cout.setf(ios::showpoint);
+    cout << "0.000" << " ft" << endl;
 
-    double loop = 0.0;
 
 
 
