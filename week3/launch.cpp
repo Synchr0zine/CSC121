@@ -21,7 +21,7 @@ Once the projectile reaches a height of zero, the program should stop.
 
 using namespace std;
 
-const double gravity_ftps = 32.174; //gravity constant in ft/s^2
+const double gravity_ftps = 32; //gravity constant in ft/s^2
 
 int main() {
 
@@ -32,7 +32,7 @@ int main() {
     cin >> velocity_mph;
 
     //Input Check
-    while (velocity_mph <=0) {
+    while (velocity_mph <0) {
         cout << "Velocity must be greater than zero!\n" << endl;
         cout << "Enter the velocity of the projectile: ";
         cin >> velocity_mph;
@@ -46,17 +46,17 @@ int main() {
 
     cout << "Total flight time: " << flight_time << endl;
 
-    double increments = 0.0;
-    while (increments<=flight_time) {
+    double seconds = 0.0;
+    while (seconds<=flight_time) {
 
         cout.width(15);
         cout.precision(1);
         cout.setf(ios::fixed);
         cout.setf(ios::right);
         cout.setf(ios::showpoint);
-        cout << increments << " seconds";
+        cout << seconds << " seconds";
 
-        double height_ftps = velocity_ftps * increments - gravity_ftps * pow(increments, 2) / 2;
+        double height_ftps = velocity_ftps * seconds - gravity_ftps * pow(seconds, 2) / 2;
 
         cout.width(15);
         cout.precision(3);
@@ -66,7 +66,7 @@ int main() {
         cout << height_ftps << " ft" << endl;
 
 
-        increments += 0.10;
+        seconds += 0.10;
     }
 
     cout.width(15);
@@ -83,7 +83,7 @@ int main() {
     cout.setf(ios::showpoint);
     cout << "0.000" << " ft" << endl;
 
-
+    return 0;
 
 
 }
