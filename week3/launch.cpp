@@ -46,8 +46,8 @@ int main() {
 
     cout << "Total flight time: " << flight_time << endl;
 
-    double seconds = 0.0;
-    while (seconds<=flight_time) {
+    double seconds = 0.0; //loop variable
+    while (seconds<=flight_time) {  // loop for the table
 
         cout.width(15);
         cout.precision(1);
@@ -56,6 +56,7 @@ int main() {
         cout.setf(ios::showpoint);
         cout << seconds << " seconds";
 
+        // formula of the current height at a given time
         double height_ftps = velocity_ftps * seconds - gravity_ftps * pow(seconds, 2) / 2;
 
         cout.width(15);
@@ -82,6 +83,14 @@ int main() {
     cout.setf(ios::right);
     cout.setf(ios::showpoint);
     cout << "0.000" << " ft" << endl;
+
+    /*
+     In this last part I have tried to make it look like the bowling code we wrote in the class which also showed the
+    last second and 0.00 as the height on the table, however I could not implement it since the bowling code had exact
+    number increments (20) instead of number of increments that change with the velocity like this one. I did some
+    research and tried different ways but all the online stuff was things we have not learned yet so I decided to
+    implement it this way.
+    */
 
     return 0;
 
