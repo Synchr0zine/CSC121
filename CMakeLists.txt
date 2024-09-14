@@ -18,3 +18,12 @@ add_executable(sphere5a_program week3/codeFromLecture/sphere5a.cpp)
 
 # Week 3
 add_executable(launch_program week3/launch.cpp)
+
+# Week 4
+
+# Code from Lecture
+add_executable(menu_program week4/codeFromLecture/menu.cpp)
+add_executable(menu2_program week4/codeFromLecture/menu2.cpp)
+add_executable(hello_program week4/codeFromLecture/hello.cpp)
+add_executable(bowlingFail_program week4/codeFromLecture/bowlingFail.cpp)
+add_executable(areaOfRectangle_program week4/codeFromLecture/areaOfRectangle.cpp)

@@ -1,0 +1,16 @@
+When the program is run, it is going to generate a menu
+
+1.Sphere
+2.Cube
+3.Cylinder
+4.Cone
+5.Prism (Rectangular,Box)
+6.Quit
+
+For the shape chosen, output the volume and the surface area, it will then display the menu again until the user quits.
+
+Rule 1 :If a bad value is entered (8 on the menu, or something not a number), program gives an error message and makes
+the user re-enter value, same goes with the dimensions of the shape too.
+
+Rule 2 : Program must have a seperate function to calculate the volume (eg, sphereVolume, shpereSurface, cubeVolume,
+cubeSurface)
