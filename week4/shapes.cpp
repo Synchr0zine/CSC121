@@ -29,7 +29,7 @@ int main() {
     int menu = 0; //Menu list variable
 
     //Display the menu to the user
-    cout << "1. Cube\n2. Sphere\n3. Prism(Right Rectangular)\n4. Cylinder\n5. Cone\n6. Quit\nEnter choice: ";
+    cout << "1. Cube\n2. Sphere\n3. Prism(Right Rectangular)\n4. Cylinder\n5. Cone\n6. Quit\nEnter choice (1-6): ";
     cin >> menu;
 
     //Main loop keeps the program running until user inputs quits
@@ -70,7 +70,7 @@ int main() {
 
         //Check if the menu choices are valid or not and prompt again if not valid
         if (menu != CUBE && menu != SPHERE && menu != PRISM && menu != CYLINDER && menu != CONE) {
-            cout << "Invalid menu choice, please enter input again\n";
+            cout << "Invalid menu choice, please enter input again (1 to 6)\n";
             cin.clear();
             cin.ignore(INT_MAX, '\n');
         }
@@ -91,9 +91,9 @@ double ReadDimension(string prompt) {
     cout << prompt; //Display the required prompt to the user
     cin >> returnValue; //Get the value from the user
 
-    while (cin.fail() || returnValue <= 0.0) {
+    while (cin.fail() || returnValue < 0.0) {
         //If the input is below zero or if the cin enters a failure state, clears the buffer and re-prompts
-        cout << "Invalid input, please enter a correct value." << endl;
+        cout << "Invalid input, please enter a valid value." << endl;
         cin.clear();
         cin.ignore(INT_MAX, '\n');
         cout << prompt;
