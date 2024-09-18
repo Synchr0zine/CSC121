@@ -24,7 +24,7 @@ double ReadDimension(string prompt) {
     cout << prompt;
     cin >> returnValue;
 
-    while (cin.fail()) {
+    while (cin.fail() || returnValue < 0.0) {
         cerr << "Can not read input" << endl;
         cin.clear();
         cin.ignore(INT_MAX, '\n');

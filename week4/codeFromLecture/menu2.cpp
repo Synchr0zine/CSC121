@@ -19,7 +19,7 @@ int main() {
             double radius = 0;
             cout << "Enter radius: ";
             cin >> radius;
-            while (radius < 0) {
+            while (radius >= 0) {
                 double volume = 4.0 / 3.0 * M_PI * pow(radius, 3);
                 cout << "Volume of sphere: " << volume << endl;
             }
