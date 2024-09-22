@@ -32,7 +32,7 @@ int main() {
     cout << "1. Cube\n2. Sphere\n3. Prism(Right Rectangular)\n4. Cylinder\n5. Cone\n6. Quit\nEnter choice (1-6): ";
     cin >> menu;
 
-    //Main loop keeps the program running until user inputs quits
+    //Main loop keeps the program running until user inputs quits //
     while (menu != QUIT) {
         if (menu == CUBE) { // Cube Area and Volume
             double length = ReadDimension("Enter cube length: ");
