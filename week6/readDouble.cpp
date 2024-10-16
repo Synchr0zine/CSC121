@@ -30,18 +30,41 @@ double ReadDouble(string prompt) {
         cin >> input; //Get the value from the user
 
         bool hasDecimal = false;
+        bool hasComma = false;
+        bool isNegative = false;
+
         int commaCount = 0;
         int decimalCount = 0;
         int digitsAfterComma = 0;
+
         validNumber = true; //change
 
         for (int i = 0; i < input.length(); i++) {
-            if (i==0) {
-                if (!isdigit(input[i]) || input[i] == '+' || input[i] == '-' || input[i] == '.') {
+            if (i == 0) {
+                if (!(isdigit(input[i]) || input[i] == '+' || input[i] == '-' || input[i] == '.')) {
                     validNumber = false;
                     break;
                 }
-                else (input[i] >= '0' && input[i] <= '9') {
+                if (input[i] == '-') isNegative = true;
+            } else {
+                if (!isdigit(input[i]) && input[i] != '.' && input[i] != ',') {
+                    validNumber = false;
+                    break;
                 }
             }
-}
+
+            if (input[i] == '.') {
+                decimalCount++;
+                if (decimalCount == 1) {
+                    validNumber = false;
+                    break;
+                }
+                hasDecimal = true;
+            }
+
+            if (input[i] == ',') {
+                hasComma = true;
+
+            }
+        }
+    }
