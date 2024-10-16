@@ -20,6 +20,12 @@ program several times demonstrating its error checking functionality.
 
 using namespace std;
 
+double readDouble(string prompt);
+
+int main() {
+
+}
+
 double ReadDouble(string prompt) {
     string input;
     bool validNumber = false;
@@ -32,6 +38,7 @@ double ReadDouble(string prompt) {
         bool hasDecimal = false;
         bool hasComma = false;
         bool isNegative = false;
+        bool hasInvalidComma = false;
 
         int commaCount = 0;
         int decimalCount = 0;
@@ -60,11 +67,27 @@ double ReadDouble(string prompt) {
                     break;
                 }
                 hasDecimal = true;
+                hasComma = false;
             }
 
             if (input[i] == ',') {
                 hasComma = true;
-
+                commaCount++;
+                if (hasDecimal || digitsAfterComma != 3 || i == input.length() - 1 || !isdigit(input[i - 1])) {
+                    hasInvalidComma = true;
+                    break;
+                }
+                digitsAfterComma = 0;
+            } else if (isdigit(input[i])) {
+                digitsAfterComma++;
+                hasComma = false;
             }
         }
+
+        if (!validNumber || hasInvalidComma) {
+            cout << "Invalid input! Pleaese Enter a Valid Number: " << endl;
+            validNumber = false;
+        } else
+
     }
+}
