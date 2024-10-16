@@ -15,15 +15,16 @@ Create a main function where you will call the ReadDouble function and display t
 program several times demonstrating its error checking functionality.
  */
 
+
 #include <iostream>
 #include <cctype>
 
 using namespace std;
 
-double readDouble(string prompt);
+double ReadDouble(string prompt);
 
 int main() {
-
+    cout << ReadDouble("Enter a number: ");
 }
 
 double ReadDouble(string prompt) {
@@ -36,15 +37,13 @@ double ReadDouble(string prompt) {
         cin >> input; //Get the value from the user
 
         bool hasDecimal = false;
-        bool hasComma = false;
-        bool isNegative = false;
         bool hasInvalidComma = false;
 
         int commaCount = 0;
         int decimalCount = 0;
         int digitsAfterComma = 0;
 
-        validNumber = true; //change
+        validNumber = true;
 
         for (int i = 0; i < input.length(); i++) {
             if (i == 0) {
@@ -52,7 +51,6 @@ double ReadDouble(string prompt) {
                     validNumber = false;
                     break;
                 }
-                if (input[i] == '-') isNegative = true;
             } else {
                 if (!isdigit(input[i]) && input[i] != '.' && input[i] != ',') {
                     validNumber = false;
@@ -62,32 +60,37 @@ double ReadDouble(string prompt) {
 
             if (input[i] == '.') {
                 decimalCount++;
-                if (decimalCount == 1) {
+                if (decimalCount > 1) {
                     validNumber = false;
                     break;
                 }
                 hasDecimal = true;
-                hasComma = false;
+                digitsAfterComma = 0;
             }
 
             if (input[i] == ',') {
-                hasComma = true;
                 commaCount++;
-                if (hasDecimal || digitsAfterComma != 3 || i == input.length() - 1 || !isdigit(input[i - 1])) {
+                if (digitsAfterComma == 0 || digitsAfterComma > 3 || hasDecimal) {
                     hasInvalidComma = true;
                     break;
                 }
                 digitsAfterComma = 0;
             } else if (isdigit(input[i])) {
                 digitsAfterComma++;
-                hasComma = false;
             }
         }
 
         if (!validNumber || hasInvalidComma) {
-            cout << "Invalid input! Pleaese Enter a Valid Number: " << endl;
+            cout << "Invalid input! Please Enter a Valid Number: " << endl;
             validNumber = false;
-        } else
-
+        } else {
+            for (int i = 0; i < input.length(); i++) {
+                if (input[i] == ',') {
+                    input.erase(input[i]);
+                }
+            }
+            //returnValue = stod(input); //throws exception
+        }
     }
+    return returnValue;
 }
