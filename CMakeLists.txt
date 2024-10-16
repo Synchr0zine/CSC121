@@ -28,5 +28,6 @@ add_executable(menu_program week4/codeFromLecture/menu.cpp)
 add_executable(menu2_program week4/codeFromLecture/menu2.cpp)
 add_executable(hello_program week4/codeFromLecture/hello.cpp)
 add_executable(bowlingFail_program week4/codeFromLecture/bowlingFail.cpp)
-add_executable(areaOfRectangle_program week4/codeFromLecture/areaOfRectangle.cpp)
+add_executable(areaOfRectangle_program week4/codeFromLecture/areaOfRectangle.cpp
+        week6/readDouble.cpp)
 add_executable(menu5_program week4/codeFromLecture/menu5.cpp)
