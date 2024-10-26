@@ -1,11 +1,12 @@
 #include <iostream>
 #include <cmath>
-#include <iomanip>
+#include <iomanip> //required for setprecision and setw
 
 using namespace std;
 
-constexpr double G = 6.67408e-11;
+constexpr double G = 6.67408e-11; //initialize the G constant
 
+// I used the ReadDouble from the previous assignment and changed it up to only accept positive values
 double ReadPositiveDouble(const string &prompt) {
     string input; //user's input
     bool validNumber = false; //boolean to check if input is valid or not
@@ -91,31 +92,36 @@ double ReadPositiveDouble(const string &prompt) {
     return returnValue; //return the final value
 }
 
+//Function to calculate and display results in a table
 void calculateResults(double &radius1, double &radius2, double &mass1, double &mass2, double &distance) {
+    //Display the headers of the table
     cout << "Distance (m)   Force (N)" << endl;
     cout << "------------------------" << endl;
 
-    double initialDistance = distance;
-    while (distance > 0) {
-        double distanceBetweenCores = distance + radius1 + radius2;
-        double force = (G * mass1 * mass2) / pow(distanceBetweenCores, 2);
+    double initialDistance = distance; //assign the distance to initial distance since we are going to be changing it
+    while (distance > 0) { //loop to get all the force calculations as distance gets closer
+        double distanceBetweenCores = distance + radius1 + radius2; //d = x + r1 + r2
+        double force = (G * mass1 * mass2) / pow(distanceBetweenCores, 2); // F = (m1 * m2 / d^2) * G
 
+        //output the current distance and force in a table format
         cout << fixed << setprecision(2) << setw(10) << distance <<
-                "   " << scientific << setprecision(4) << force << endl;
+            "   " << scientific << setprecision(4) << force << endl;
 
+        //reduce distance to by 1/100th of itself
         distance -= initialDistance / 100.0;
     }
 }
 
 int main() {
 
+    //Get the values from the user while validating them with the ReadPositiveDouble function.
     double radius1 = ReadPositiveDouble("Enter radius of the first planet (m): ");
     double radius2 = ReadPositiveDouble("Enter radius of the second planet (m): ");
     double mass1 = ReadPositiveDouble("Enter mass of the first planet (kg): ");
     double mass2 = ReadPositiveDouble("Enter mass of the second planet (kg): ");
     double distance = ReadPositiveDouble("Enter edge distance (m): ");
 
-
+    //Pass the values to the calculateResults method
     calculateResults(radius1, radius2, mass1, mass2, distance);
 
     return 0;
