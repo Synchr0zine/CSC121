@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <iomanip>
 
 using namespace std;
 
@@ -96,16 +97,26 @@ void calculateResults(double &radius1, double &radius2, double &mass1, double &m
 
     double initialDistance = distance;
     while (distance > 0) {
-        double remainingDistance = distance + radius1 + radius2;
-        double force = (G * mass1 * mass2) / pow(distance,2);
+        double distanceBetweenCores = distance + radius1 + radius2;
+        double force = (G * mass1 * mass2) / pow(distanceBetweenCores, 2);
 
-        cout.width(15);
-        cout.precision(1);
-        cout.setf(ios::fixed);
-        cout.setf(ios::right);
-        cout.setf(ios::showpoint);
+        cout << fixed << setprecision(2) << setw(10) << distance <<
+                "   " << scientific << setprecision(4) << force << endl;
+
+        distance -= initialDistance / 100.0;
     }
 }
 
 int main() {
+
+    double radius1 = ReadPositiveDouble("Enter radius of the first planet (m): ");
+    double radius2 = ReadPositiveDouble("Enter radius of the second planet (m): ");
+    double mass1 = ReadPositiveDouble("Enter mass of the first planet (kg): ");
+    double mass2 = ReadPositiveDouble("Enter mass of the second planet (kg): ");
+    double distance = ReadPositiveDouble("Enter edge distance (m): ");
+
+
+    calculateResults(radius1, radius2, mass1, mass2, distance);
+
+    return 0;
 }
