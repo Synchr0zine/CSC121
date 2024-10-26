@@ -33,3 +33,10 @@ add_executable(menu5_program week4/codeFromLecture/menu5.cpp)
 
 #Week 6
 add_executable(readDouble week6/readDouble.cpp)
+
+#Week 8
+add_executable(q4 week8/midtermCodes/q4.cpp)
+add_executable(q5 week8/midtermCodes/q5.cpp)
+add_executable(q8 week8/midtermCodes/q8.cpp)
+add_executable(attraction week7/attraction.cpp
+)

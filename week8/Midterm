@@ -1,0 +1,127 @@
+Midterm
+
+1)
+    a.  mkdir DEV
+    b.	cd DEV
+    c.  g++ prog1.C -o demo1
+
+2) When we pass by the value we pass the data, but when we pass by reference, we pass it by the address.
+
+3)
+    double fahrenheitToCelsius(double fahrenheit) {
+       return (fahrenheit - 32) * 5 / 9;
+   }
+
+4)
+
+#include <iostream>
+#include <cctype>
+
+using namespace std;
+
+string numberConverter(string input) { //function to convert numbers to '#' sign
+    for (int i = 0; i < input.length(); i++) { //loop through the characters on the string
+        if (isdigit(input[i])) { // if the current digit is a number,
+            input[i] = '#'; // replace it with a #
+        }
+    }
+    return input; //return the converted string
+}
+
+int main() {
+
+    string input;
+
+    cout << "Please enter a string: ";
+    cin >> input;
+
+    cout << "Converted string: " <<numberConverter(input);
+
+}
+
+5)
+
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+int main() {
+    const int diceToRoll = 20; // Number of dice to roll
+    const int sides = 20; // Sides of each die
+
+    // Seed the random number generator with the current time so everytime seed is different
+    srand(static_cast<unsigned>(time(nullptr)));
+
+    cout << "Rolling " << diceToRoll << " twenty-sided dice:\n";
+
+    // Roll the dice and print the results
+    for (int i = 0; i < diceToRoll; ++i) {
+        int roll = rand() % sides + 1; // Generate a number between 1 and 20
+        cout << roll << " "; // Output the result
+    }
+
+    cout << endl; // New line after rolling
+
+    return 0;
+}
+
+6)
+    Compiler checks the signature of the function with the given argument to figure out which function to call.
+
+7)
+
+template <typename T>
+double calculateAverage(T a, T b) {
+    return (a + b) / 2.0; // Casted the result to double implicitly to not lose any decimals while returning the value
+}
+
+8)
+
+#include <iostream>
+#include <cctype>
+
+using namespace std;
+
+// Function to filter out non-alphabetic characters
+string filterString(const string& input) {
+    string filtered;
+    for (int i = 0; i < input.length(); ++i) { // loop through the characters of string
+        char ch = input[i];
+        if (isalpha(ch)) { // Check if the character is alphabetic
+            filtered += tolower(ch); // Convert to lowercase and add to the filtered string
+        }
+    }
+    return filtered;
+}
+
+// Function to check if the string is a palindrome
+bool isPalindrome(const string& str) {
+    string filteredStr = filterString(str);
+    string reversedStr;
+
+    // Manually reverse the filtered string
+    for (int i = filteredStr.length() - 1; i >= 0; --i) {
+        reversedStr += filteredStr[i]; // Add characters in reverse order
+    }
+
+    return filteredStr == reversedStr; // Check for palindrome
+}
+
+int main() {
+    string input;
+
+    // Prompt the user for a string
+    cout << "Enter a string: ";
+    getline(cin, input); // Read the entire line, (In here I first tried to use the cin, but it only reads until first space)
+
+    // Check if the string is a palindrome
+    if (isPalindrome(input)) {
+        cout << "The string is a palindrome." << endl;
+    } else {
+        cout << "The string is not a palindrome." << endl;
+    }
+
+    return 0;
+}
