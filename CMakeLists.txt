@@ -41,13 +41,4 @@ add_executable(q8 week8/midtermCodes/q8.cpp)
 add_executable(attraction week7/attraction.cpp
 )
 add_executable(shapes2 week8/shapes2/shapes2.cpp
-        week8/shapes2/Cube.cpp
-        week8/shapes2/Cube.h
-        week8/shapes2/Sphere.cpp
-        week8/shapes2/Sphere.h
-        week8/shapes2/Prism.cpp
-        week8/shapes2/Prism.h
-        week8/shapes2/Cylinder.cpp
-        week8/shapes2/Cylinder.h
-        week8/shapes2/Cone.cpp
-        week8/shapes2/Cone.h)
+)
