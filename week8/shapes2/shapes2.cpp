@@ -238,9 +238,9 @@ int main() {
     while (choice != 6) {
         switch (choice) {
             case 1: {
-                Cube cube;
-                cube.input();
-                cube.display();
+                Cube cube; //Create a cube object from Cube class;
+                cube.input(); //Call the input function.
+                cube.display(); //Output the value and, same for the rest of the shapes
                 break;
             }
             case 2: {
